@@ -84,7 +84,7 @@ func convertCSVtoSQL(header []string, inputPath, separator string) error {
 	defer file.Close()
 
 	reader := csv.NewReader(file)
-	reader.Comma = []rune(separator)[0] // Convertendo para rune
+	reader.Comma = []rune(separator)[0]
 	reader.LazyQuotes = true
 
 	rows, err := reader.ReadAll()
@@ -100,7 +100,7 @@ func convertCSVtoSQL(header []string, inputPath, separator string) error {
 
 	var sqlStatements []string
 
-	for _, row := range rows[1:] { // Ignorando o cabeçalho ao criar as instruções SQL
+	for _, row := range rows[1:] {
 		values := make([]string, len(header))
 		for i, value := range row {
 			values[i] = fmt.Sprintf("'%s'", escapeSingleQuotes(value))
