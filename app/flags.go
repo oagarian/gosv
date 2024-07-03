@@ -15,6 +15,12 @@ var flags = []cli.Flag{
         Value:   ",",
         Usage:   "Inform .csv separator",
 	},
+	&cli.StringFlag{
+		Name: "output",
+		Aliases: []string{"o"},
+		Value:   "json",
+        Usage:   "Inform output file extension",
+	},
 }
 
 func Flags() []cli.Flag {
